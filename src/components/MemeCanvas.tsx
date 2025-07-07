@@ -1,17 +1,17 @@
-'use client';
+"use client";
 
-import { useMemeStore } from '@/store/memeStore';
-import styled from '@emotion/styled';
+import { useMemeStore } from "@/store/memeStore";
+import styled from "@emotion/styled";
 
-const CanvasWrapper = styled('div')`
+const CanvasWrapper = styled("div")`
   position: relative;
   width: 400px;
   height: auto;
   margin-top: 1rem;
-  border: 2px solid #ccc;
+  border: none;
 `;
 
-const MemeText = styled('div')`
+const MemeText = styled("div")`
   position: absolute;
   width: 100%;
   text-align: center;
@@ -28,9 +28,9 @@ const MemeCanvas = () => {
 
   return (
     <CanvasWrapper id="meme-box">
-      <img src={image} alt="Uploaded meme" style={{ width: '100%' }} />
-      <MemeText style={{ top: '10px' }}>{topText}</MemeText>
-      <MemeText style={{ bottom: '10px' }}>{bottomText}</MemeText>
+      <img src={image} alt="Uploaded meme" style={{ width: "100%" }} />
+      <MemeText style={{ top: "15px" }}>{topText}</MemeText>
+      <MemeText style={{ bottom: "15px" }}>{bottomText}</MemeText>
     </CanvasWrapper>
   );
 };

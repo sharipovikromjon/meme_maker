@@ -1,4 +1,5 @@
-import { create } from 'zustand';
+import { create } from "zustand";
+import { combine, devtools } from "zustand/middleware";
 
 interface MemeState {
   image: string | null;
@@ -9,11 +10,13 @@ interface MemeState {
   setBottomText: (text: string) => void;
 }
 
-export const useMemeStore = create<MemeState>((set) => ({
-  image: null,
-  topText: '',
-  bottomText: '',
-  setImage: (img) => set(() => ({ image: img })),
-  setTopText: (text) => set(() => ({ topText: text })),
-  setBottomText: (text) => set(() => ({ bottomText: text })),
-}));
+export const useMemeStore = create(
+  devtools<MemeState>((set) => ({
+    image: null,
+    topText: "",
+    bottomText: "",
+    setImage: (img: null | string) => set(() => ({ image: img })),
+    setTopText: (text) => set(() => ({ topText: text })),
+    setBottomText: (text) => set(() => ({ bottomText: text })),
+  }))
+);

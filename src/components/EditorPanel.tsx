@@ -1,10 +1,11 @@
-'use client';
+"use client";
 
-import { TextField } from '@mui/material';
-import styled from '@emotion/styled';
-import { useMemeStore } from '@/store/memeStore';
+import styled from "@emotion/styled";
+import { TextField } from "@mui/material";
+import { useMemeStore } from "@/store/memeStore";
+import UploadImage from "@/components/UploadImage";
 
-const Panel = styled('div')`
+const Panel = styled("div")`
   display: flex;
   flex-direction: column;
   gap: 1rem;
@@ -14,7 +15,8 @@ const Panel = styled('div')`
 `;
 
 const EditorPanel = () => {
-  const { topText, bottomText, setTopText, setBottomText, setImage } = useMemeStore();
+  const { topText, bottomText, setTopText, setBottomText, setImage } =
+    useMemeStore();
 
   const handleUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
@@ -29,9 +31,19 @@ const EditorPanel = () => {
 
   return (
     <Panel>
-      <input type="file" accept="image/*" onChange={handleUpload} />
-      <TextField label="Top Text" value={topText} onChange={(e) => setTopText(e.target.value)} fullWidth />
-      <TextField label="Bottom Text" value={bottomText} onChange={(e) => setBottomText(e.target.value)} fullWidth />
+      <UploadImage handleUpload={handleUpload} />
+      <TextField
+        label="Top Text"
+        value={topText}
+        onChange={(e) => setTopText(e.target.value)}
+        fullWidth
+      />
+      <TextField
+        label="Bottom Text"
+        value={bottomText}
+        onChange={(e) => setBottomText(e.target.value)}
+        fullWidth
+      />
     </Panel>
   );
 };

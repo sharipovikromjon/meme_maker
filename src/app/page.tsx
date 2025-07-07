@@ -1,11 +1,11 @@
-'use client';
+"use client";
 
-import EditorPanel from '@/components/EditorPanel';
-import MemeCanvas from '@/components/MemeCanvas';
-import ExportButton from '@/components/ExportButton';
-import styled from '@emotion/styled';
+import EditorPanel from "@/components/EditorPanel";
+import ExportButton from "@/components/ExportButton";
+import MemeCanvas from "@/components/MemeCanvas";
+import styled from "@emotion/styled";
 
-const Container = styled('main')`
+const Container = styled("main")`
   display: flex;
   flex-direction: row;
   align-items: flex-start;
